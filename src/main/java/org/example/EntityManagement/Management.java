@@ -22,36 +22,42 @@ public class Management {
         ToDoList toDo = new ToDoList(title, status);
         em.persist(toDo);
         em.getTransaction().commit();
+        em.close();
     }
 
     public static  List<ToDoList> displayAllTasks(){
         EntityManager em = emf.createEntityManager();
-        em.getTransaction().begin();
-
-        List<ToDoList>  tasks = null;
+        List<ToDoList>  tasks;
 
         tasks = em.createQuery("SELECT t from ToDoList t", ToDoList.class).getResultList();
 
-        for (ToDoList t : tasks){
-            System.out.println(t);
-        }
+       // for (ToDoList t : tasks){
+           // System.out.println(t);
+       // }
+        em.close();
         return tasks;
+
     }
 
     public static  void alterTaskStatus(long id){
         EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
         ToDoList task = em.find(ToDoList.class, id);
         task.setStatus(true);
-        em.refresh(task);
+        em.getTransaction().commit();
+       // em.refresh(task);
+
     }
 
     public static void deleteTask(long id){
         EntityManager em = emf.createEntityManager();
-        em.getTransaction();
+        em.getTransaction().begin();
 
         ToDoList task = em.find(ToDoList.class, id);
         em.remove(task);
-        em.refresh(task);
+        em.getTransaction().commit();
+        //em.refresh(task);
+        em.close();
     }
 
     public static void endConnection(){
