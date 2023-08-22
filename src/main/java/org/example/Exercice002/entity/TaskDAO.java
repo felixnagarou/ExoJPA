@@ -1,10 +1,8 @@
 package org.example.Exercice002.entity;
-
-import org.example.Exercice001.EntityManagement.entity.ToDoList;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import java.util.List;
+
 
 
 public class TaskDAO implements EntityDAO{
@@ -23,9 +21,9 @@ public class TaskDAO implements EntityDAO{
     @Override
     public List<Task> displayAllTasks() {
         EntityManager em = emf.createEntityManager();
-        List<ToDoList>  tasks;
+        List<Task>  tasks;
 
-        tasks = em.createQuery("SELECT t from ToDoList t", ToDoList.class).getResultList();
+        tasks = em.createQuery("SELECT t from ToDoList t", Task.class).getResultList();
         em.close();
 
         return null;
@@ -36,7 +34,7 @@ public class TaskDAO implements EntityDAO{
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
 
-        ToDoList task = em.find(ToDoList.class, id);
+        Task task = em.find(Task.class, id);
         em.remove(task);
         em.getTransaction().commit();
         em.close();
@@ -48,7 +46,7 @@ public class TaskDAO implements EntityDAO{
     public boolean alterTaskStatus(long id) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        ToDoList task = em.find(ToDoList.class, id);
+        Task task = em.find(Task.class, id);
         task.setStatus(true);
         em.getTransaction().commit();
         em.close();
@@ -73,12 +71,15 @@ public class TaskDAO implements EntityDAO{
     }
 
     @Override
-    public TaskInfo displayPriority(long id) {
+    public List<TaskInfo> displayPriority(long id) {
         EntityManager em = emf.createEntityManager();
-        TaskInfo info = (TaskInfo) em.createNativeQuery("SELECT taskPriorityLevel from info where task_id = task(task_id)", TaskInfo.class).getSingleResult();
-        info.getTaskPriorityLevel();
-
-        return info;
+        List<TaskInfo> infos =  em.createNativeQuery("SELECT task_id from info where task_id = task(task_id)", TaskInfo.class).getResultList();
+        for (TaskInfo info:infos
+             ) {
+            System.out.println(info.getTaskPriorityLevel());
+            
+        }
+        return infos;
     }
 
 

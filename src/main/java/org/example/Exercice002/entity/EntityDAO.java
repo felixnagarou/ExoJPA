@@ -16,7 +16,7 @@ public interface EntityDAO {
 
     public TaskInfo displayDeadline(long id);
 
-    public TaskInfo displayPriority(long id);
+    public List<TaskInfo> displayPriority(long id);
     public boolean endConnection();
 
 
