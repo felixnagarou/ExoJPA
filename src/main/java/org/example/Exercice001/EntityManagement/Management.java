@@ -1,6 +1,6 @@
-package org.example.EntityManagement;
+package org.example.Exercice001.EntityManagement;
 
-import org.example.entity.ToDoList;
+import org.example.Exercice001.EntityManagement.entity.ToDoList;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -65,8 +65,4 @@ public class Management {
         em.close();
         emf.close();
     }
-
-
-
-
 }

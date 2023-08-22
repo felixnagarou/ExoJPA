@@ -1,4 +1,4 @@
-package org.example.entity;
+package org.example.Exercice001.EntityManagement.entity;
 
 import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 

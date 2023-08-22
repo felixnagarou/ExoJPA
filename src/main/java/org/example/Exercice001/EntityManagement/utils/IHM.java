@@ -1,7 +1,6 @@
-package org.example.utils;
+package org.example.Exercice001.EntityManagement.utils;
 
-import org.example.EntityManagement.Management;
-import org.example.entity.ToDoList;
+import org.example.Exercice001.EntityManagement.Management;
 
 import java.util.Scanner;
 
