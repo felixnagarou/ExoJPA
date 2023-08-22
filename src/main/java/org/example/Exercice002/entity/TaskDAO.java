@@ -73,7 +73,7 @@ public class TaskDAO implements EntityDAO{
     @Override
     public List<TaskInfo> displayPriority(long id) {
         EntityManager em = emf.createEntityManager();
-        List<TaskInfo> infos =  em.createNativeQuery("SELECT task_id from info where task_id = task(task_id)", TaskInfo.class).getResultList();
+        List<TaskInfo> infos =  em.createNativeQuery("SELECT task_id from taskinfo where task_id = task(task_id) order by taskPriorityLevel", TaskInfo.class).getResultList();
         for (TaskInfo info:infos
              ) {
             System.out.println(info.getTaskPriorityLevel());
