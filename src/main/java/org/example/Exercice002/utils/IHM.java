@@ -23,8 +23,8 @@ public class IHM {
                     + "2. Afficher la liste des tâches\n"
                     +" 3. Terminer une tâche\n"
                     +"4. Afficher les informations respectives à la tâche\n"
-                    +"5. Afficher les tâches par priorité"
-                    +"6. Afficher les tâches par deadline");
+                    +"5. Afficher les tâches par priorité\n"
+                    +"6. Afficher les tâches par deadline\n");
             input = scanner.nextInt();
             scanner.nextLine();
             switch (input){

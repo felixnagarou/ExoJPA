@@ -42,7 +42,7 @@ public class TaskDAO extends EntityDAO<Task>{
         task.setTitle();
         em.getTransaction().commit();
         em.close();
-        return false;
+        return true;
     }
 
     @Override
