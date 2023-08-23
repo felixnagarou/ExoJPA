@@ -50,4 +50,9 @@ public class Task {
     }
 
     public List<Category> getCategories(){ return categories;}
+
+    public TaskInfo getTaskInfo() {
+        return taskInfo;
+    }
+    public void setTaskInfo() {this.taskInfo = taskInfo;}
 }

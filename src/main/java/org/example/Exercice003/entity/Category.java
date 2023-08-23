@@ -2,6 +2,7 @@ package org.example.Exercice003.entity;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "category")
@@ -28,5 +29,9 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public ArrayList<Task> getTasks() {
+        return tasks;
     }
 }
