@@ -1,33 +1,58 @@
 package org.example.Exercice003.DAO;
 
+import org.example.Exercice003.entity.Category;
+import org.example.Exercice003.entity.Person;
 import org.example.Exercice003.entity.Task;
 
 import javax.lang.model.element.Element;
+import javax.persistence.EntityManager;
 import java.util.ArrayList;
+import java.util.List;
 
 public class TaskDAO extends EntityDAO<Task>{
     @Override
-    public boolean insert(Element T) {
-        return super.insert(T);
+    public boolean insert(Task element) {
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        element = new Task();
+        em.persist(element);
+        return false;
     }
 
     @Override
-    public Element get(Element T) {
-        return super.get(T);
+    public Task get(long id) {
+        EntityManager em = emf.createEntityManager();
+        Task element = em.find(Task.class,id);
+        return element;
     }
 
     @Override
-    public ArrayList<Task> getAll(Element T) {
-        return super.getAll(T);
+    public List<Task> getAll() {
+        EntityManager em = emf.createEntityManager();
+        List<Task> list;
+        list =  em.createNativeQuery("SELECT * FROM task", Task.class).getResultList();
+        return list;
     }
 
     @Override
     public boolean update(long id) {
-        return super.update(id);
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        Task task = em.find(Task.class,id);
+        task.setTitle();
+        em.getTransaction().commit();
+        em.close();
+        return false;
     }
 
     @Override
     public boolean remove(long id) {
-        return super.remove(id);
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        Task task = em.find(Task.class, id);
+        em.remove(task);
+        em.getTransaction().commit();
+        em.close();
+        return false;
     }
 }

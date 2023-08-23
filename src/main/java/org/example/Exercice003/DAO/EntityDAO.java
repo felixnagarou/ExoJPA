@@ -1,31 +1,27 @@
 package org.example.Exercice003.DAO;
 
 import javax.lang.model.element.Element;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import java.util.ArrayList;
+import java.util.List;
 
 public abstract class EntityDAO<T> {
+    public  static EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa_demo_postgres2");
 
-    public boolean insert(Element T){
-        return true;
+    public EntityDAO(){
     }
 
-    public Element get(Element T){
-        Element t = null;
-        return t;
 
-    }
+    public abstract boolean insert(T element);
 
-    public ArrayList<T>  getAll(Element T){
-        ArrayList<T> list = null;
-        return list;
-    }
+    public abstract T get(long id);
 
-    public boolean update(long id){
-        return true;
-    }
+    public abstract List<T> getAll();
 
-    public boolean remove(long id){
-        return true;
-    }
+    public abstract boolean update(long id);
+
+    public abstract boolean remove(long id);
 
 }
