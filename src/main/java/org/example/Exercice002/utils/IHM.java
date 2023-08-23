@@ -2,6 +2,7 @@ package org.example.Exercice002.utils;
 
 
 
+import org.example.Exercice002.entity.Task;
 import org.example.Exercice002.entity.TaskDAO;
 
 import java.util.Scanner;
@@ -30,19 +31,19 @@ public class IHM {
                 case 1 :
                     System.out.println("Entrer un titre pour la tâche à effectuer");
                     String title  = scanner.nextLine();
-                    TaskDAO.insertTask(title, false);
+                    management.insertTask(new Task());
                     break;
                 case 2 :
-                    System.out.println(TaskDAO.displayAllTasks());
+                    System.out.println(management.displayAllTasks());
                     break;
                 case 3 :
                     System.out.println("Sélectionnez la tâche terminée");
                     Long id = scanner.nextLong();
-                    TaskDAO.alterTaskStatus(id);
-                    TaskDAO.deleteTask(id);
+                    management.alterTaskStatus(id);
+                    management.deleteTask(id);
                     break;
                 default :
-                    TaskDAO.endConnection();
+                    management.endConnection();
                     System.out.println("Fin du programme.");
                     break;
             }
