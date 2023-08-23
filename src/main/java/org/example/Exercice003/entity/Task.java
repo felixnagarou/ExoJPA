@@ -2,6 +2,8 @@ package org.example.Exercice003.entity;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "task")
 public class Task {
@@ -46,4 +48,6 @@ public class Task {
     public void setPerson(Person person) {
         this.person = person;
     }
+
+    public List<Category> getCategories(){ return categories;}
 }
