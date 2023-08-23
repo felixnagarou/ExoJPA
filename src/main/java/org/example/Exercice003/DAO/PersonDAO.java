@@ -1,6 +1,7 @@
 package org.example.Exercice003.DAO;
 
 import org.example.Exercice003.entity.Person;
+import org.example.Exercice003.entity.Task;
 
 import javax.lang.model.element.Element;
 import javax.persistence.EntityManager;
@@ -52,4 +53,7 @@ public class PersonDAO extends EntityDAO<Person> {
         em.close();
         return false;
     }
+
+
+
 }

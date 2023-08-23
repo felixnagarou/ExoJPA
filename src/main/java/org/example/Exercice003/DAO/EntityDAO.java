@@ -20,6 +20,7 @@ public abstract class EntityDAO<T> {
 
     public abstract List<T> getAll();
 
+
     public abstract boolean update(long id);
 
     public abstract boolean remove(long id);

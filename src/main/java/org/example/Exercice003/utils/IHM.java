@@ -52,8 +52,10 @@ public class IHM {
                     personDAO.insert(new Person());
                     break;
                 case 2 :
+                    System.out.println("Entrer id personne");
+                    personDAO.get(scanner.nextLong()).getTaskList();
+                    scanner.nextLine();
                     System.out.println("===Tâches de la personne===");
-                    System.out.println(personDAO.getAll());
                     break;
                 case 3 :
                     System.out.println("Ajouter une tâche");
@@ -92,11 +94,10 @@ public class IHM {
                     categoryDAO.remove(id);
                     break;
                 case 10 :
-                    System.out.println("===Entrer catégorie pour afficher tâches===");
+                    System.out.println("===Entrer id catégorie===");
                     //REQUETE SPECIALE
-                    id = scanner.nextLong();
-                    scanner.nextLine();
-                    categoryDAO.getAll();
+                    categoryDAO.get(scanner.nextLong());
+                    System.out.println("===Tâches par catégorie===");
                     break;
                 case 11 :
                     System.out.println("Entrer la tâche à ajouter pour la catégorie");
