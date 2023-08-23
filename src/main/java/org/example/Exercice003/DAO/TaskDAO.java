@@ -3,6 +3,7 @@ package org.example.Exercice003.DAO;
 import org.example.Exercice003.entity.Category;
 import org.example.Exercice003.entity.Person;
 import org.example.Exercice003.entity.Task;
+import org.example.Exercice003.utils.IHM;
 
 import javax.lang.model.element.Element;
 import javax.persistence.EntityManager;
@@ -39,7 +40,6 @@ public class TaskDAO extends EntityDAO<Task>{
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         Task task = em.find(Task.class,id);
-        task.setTitle();
         em.getTransaction().commit();
         em.close();
         return true;

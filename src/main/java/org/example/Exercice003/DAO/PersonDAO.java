@@ -37,9 +37,6 @@ public class PersonDAO extends EntityDAO<Person> {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         Person person = em.find(Person.class,id);
-        person.setName();
-        person.setFirst_name();
-        person.setTaskList();
         em.getTransaction().commit();
         em.close();
         return false;

@@ -41,10 +41,8 @@ public class TaskInfoDAO extends EntityDAO<TaskInfo> {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         TaskInfo info = em.find(TaskInfo.class,id);
-        info.setDeadline();
         em.getTransaction().commit();
         em.close();
-        return false;
         return false;
     }
 

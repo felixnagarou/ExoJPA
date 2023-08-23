@@ -39,7 +39,6 @@ public class CategoryDAO extends EntityDAO<Category> {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         Category category = em.find(Category.class,id);
-        category.setName();
         em.getTransaction().commit();
         em.close();
         return false;
